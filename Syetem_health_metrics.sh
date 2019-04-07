@@ -33,3 +33,5 @@ timestamp=`date -u +'%Y-%m-%dT%H:%M:%S.%5N'`
         else
 	        reboot_required=0
         fi
+#container Count
+no_of_containers_running=$(docker ps -a | grep -vE "Exited|CONTAINER"  | wc -l)
