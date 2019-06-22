@@ -1,0 +1,22 @@
+Grafana syml authentication
+
+/etc/grafana/grafana.ini
+append this at the end:
+
+[auth.generic_oauth]
+name = Gitlab
+enabled = true
+client_id = GITLAB_ID
+client_secret = GITLAB_SECRETE
+scopes = api,read_user
+auth_url = https://gitlaburl/oauth/authorize
+token_url = https://gitlaburl/oauth/token
+api_url = https://gitlaburl/api/v4/user
+allowed_domains =
+allow_sign_up = true
+
+how to  get cleint id client secrete: 
+go to https://gitlaburl/profile/applications
+provide name, Redirect URI: "grafana url"
+select api and read user
+save application to generate application id and secrete.
